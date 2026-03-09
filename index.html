@@ -26,7 +26,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', Georgia, sans-serif;
   background: var(--bg);
   color: var(--ink);
   font-size: 15px;
@@ -37,7 +37,7 @@ body {
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(247,246,242,0.95);
+  background: rgba(247,246,242,0.97);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
@@ -54,7 +54,6 @@ nav {
 .nav-links a {
   font-size: 13px; font-weight: 500;
   color: var(--muted); text-decoration: none;
-  letter-spacing: 0.04em;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--ink); }
@@ -68,6 +67,7 @@ nav {
   position: relative;
 }
 .hero-inner { max-width: 680px; }
+
 .hero-badge {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--accent-light);
@@ -77,49 +77,48 @@ nav {
   letter-spacing: 0.1em; text-transform: uppercase;
   padding: 6px 14px; border-radius: 100px;
   margin-bottom: 32px;
-  opacity: 0; animation: fadeUp 0.6s 0.1s ease forwards;
 }
-.hero-badge::before {
-  content: '';
+.hero-badge .dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent);
+  display: inline-block;
   animation: pulse 2s infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
 }
+
 h1 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(42px, 6vw, 72px);
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: 24px;
-  opacity: 0; animation: fadeUp 0.7s 0.25s ease forwards;
 }
 h1 em { font-style: italic; color: var(--accent); }
+
 .hero-bio {
   font-size: 17px; color: var(--muted); line-height: 1.75;
-  max-width: 520px;
-  opacity: 0; animation: fadeUp 0.7s 0.4s ease forwards;
+  max-width: 520px; margin-bottom: 40px;
 }
-.hero-cta {
-  margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap;
-  opacity: 0; animation: fadeUp 0.7s 0.55s ease forwards;
-}
+
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 24px; border-radius: 8px;
   font-size: 14px; font-weight: 500;
   text-decoration: none; cursor: pointer;
   transition: all 0.2s; border: none;
+  font-family: 'DM Sans', sans-serif;
 }
-.btn-primary { background: var(--ink); color: white; }
+.btn-primary { background: var(--ink); color: #ffffff !important; }
 .btn-primary:hover { background: #333; transform: translateY(-1px); }
 .btn-outline {
-  background: transparent; color: var(--ink);
-  border: 1.5px solid var(--border);
+  background: var(--surface); color: var(--ink) !important;
+  border: 1.5px solid #c0bfb8;
 }
 .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
 
@@ -127,16 +126,11 @@ h1 em { font-style: italic; color: var(--accent); }
   position: absolute; right: 48px; top: 50%;
   transform: translateY(-50%);
   display: grid; grid-template-columns: repeat(6,1fr); gap: 10px;
-  opacity: 0.15;
+  opacity: 0.12;
 }
 .hero-dots span {
   width: 4px; height: 4px; border-radius: 50%;
   background: var(--ink); display: block;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* SECTIONS */
@@ -208,7 +202,7 @@ section {
   letter-spacing: 0.08em; margin-bottom: 10px;
 }
 .project-card h3 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 22px; margin-bottom: 10px;
 }
 .project-card p { font-size: 14px; color: var(--muted); max-width: 680px; line-height: 1.7; }
@@ -217,7 +211,6 @@ section {
   background: var(--tag-bg);
   font-family: 'DM Mono', monospace;
   font-size: 11px; font-weight: 500;
-  letter-spacing: 0.06em;
   padding: 4px 10px; border-radius: 6px;
   color: var(--muted);
 }
@@ -226,14 +219,13 @@ section {
   padding: 6px 14px; border-radius: 100px;
   font-size: 12px; font-weight: 500;
   white-space: nowrap; flex-shrink: 0;
+  background: var(--green-light); color: var(--green);
 }
-.status-done { background: var(--green-light); color: var(--green); }
-.status-done::before {
+.project-status::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--green);
+  background: var(--green); display: inline-block;
 }
 
-/* Screenshot gallery */
 .screenshots-label {
   font-family: 'DM Mono', monospace;
   font-size: 11px; letter-spacing: 0.1em;
@@ -264,18 +256,17 @@ section {
   align-items: start;
 }
 .about-text h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 36px; margin-bottom: 20px; line-height: 1.2;
 }
 .about-text p { color: var(--muted); margin-bottom: 16px; }
 .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .stat-box {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--surface); border: 1px solid var(--border);
   border-radius: 12px; padding: 24px;
 }
 .stat-box .num {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 36px; color: var(--accent);
 }
 .stat-box .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
@@ -283,18 +274,16 @@ section {
 /* CONTACT */
 .contact-inner { max-width: 560px; }
 .contact-inner h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 36px; margin-bottom: 16px;
 }
-.contact-inner p { color: var(--muted); margin-bottom: 32px; }
+.contact-inner > p { color: var(--muted); margin-bottom: 32px; }
 .contact-links { display: flex; flex-direction: column; gap: 12px; }
 .contact-link {
   display: flex; align-items: center; gap: 16px;
   padding: 16px 20px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  text-decoration: none; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; text-decoration: none; color: var(--ink);
   font-size: 14px; font-weight: 500;
   transition: border-color 0.2s, transform 0.2s;
 }
@@ -319,8 +308,10 @@ footer {
   nav { padding: 0 20px; }
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 12px; }
-  .hero { padding: 90px 20px 60px; min-height: auto; }
+  .hero { padding: 80px 20px 60px; min-height: auto; }
   .hero-dots { display: none; }
+  h1 { font-size: 38px; }
+  .hero-bio { font-size: 15px; }
   section { padding: 60px 20px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .screenshots-grid { grid-template-columns: 1fr; }
@@ -348,7 +339,10 @@ footer {
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">Available for opportunities</div>
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Available for opportunities
+    </div>
     <h1>Ibrahim Malik<br/><em>Omolade</em></h1>
     <p class="hero-bio">
       Cloud Engineer with a frontend engineering foundation and an ever growing passion for AWS infrastructure, automation, and scalable cloud architecture. Building real projects, one service at a time and delivering real world solutions across S3, Rekognition, IAM, and beyond.
@@ -429,7 +423,7 @@ footer {
         <span class="tag">IAM</span>
       </div>
     </div>
-    <span class="project-status status-done">Completed ✓</span>
+    <span class="project-status">Completed ✓</span>
   </div>
   <div class="screenshots-label">Project Screenshots</div>
   <div class="screenshots-grid">
@@ -496,7 +490,7 @@ footer {
         <span class="tag">SSH</span>
       </div>
     </div>
-    <span class="project-status status-done">Completed ✓</span>
+    <span class="project-status">Completed ✓</span>
   </div>
   <div class="screenshots-label">Project Screenshots</div>
   <div class="screenshots-grid">
@@ -612,9 +606,3 @@ footer {
 
 </body>
 </html>
-
-        
-
-
-
-
