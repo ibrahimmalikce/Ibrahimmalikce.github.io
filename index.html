@@ -472,14 +472,70 @@ footer {
 </div>
 
 <!-- Project 2 — PLACEHOLDER -->
-<div class="project-card placeholder">
+<div class="project-card" style="grid-template-columns: 1fr; gap: 28px;">
+  <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 16px;">
+    <div>
+      <div class="project-number">PROJECT 02</div>
+      <h3>AWS Load Balanced Web Infrastructure with Ansible</h3>
+      <p>Designed and deployed a highly available web application on AWS using EC2 instances behind an Application Load Balancer (ALB). Automated Nginx web server provisioning across multiple instances using an Ansible playbook. Implemented a Bastion host for secure SSH access to private web servers, with all instances running healthy in the EU North (Stockholm) region.</p>
+      <div class="tags" style="margin-top: 16px;">
+        <span class="tag">AWS EC2</span>
+        <span class="tag">App Load Balancer</span>
+        <span class="tag">Ansible</span>
+        <span class="tag">Nginx</span>
+        <span class="tag">Ubuntu 24.04</span>
+        <span class="tag">Bastion Host</span>
+        <span class="tag">VPC</span>
+        <span class="tag">SSH</span>
+      </div>
+    </div>
+    <span class="project-status status-done">Completed ✓</span>
+  </div>
+
   <div>
-    <div class="project-number">PROJECT 02</div>
-    <h3>Coming Soon</h3>
-    <p>Next cloud project in the pipeline. Check back soon.</p>
-    <div class="tags">
-      <span class="tag">AWS</span>
-      <span class="tag">TBD</span>
+    <div style="font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px;">Project Screenshots</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+
+      <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface);">
+        <img src="Live site.JPG" alt="Live Site" style="width:100%; display:block; border-bottom: 1px solid var(--border);"/>
+        <div style="padding: 10px 14px;">
+          <div style="font-size: 12px; font-weight: 600;">Step 1 — Live Site via ALB DNS</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">Web page served through the Application Load Balancer DNS endpoint</div>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface);">
+        <img src="Target groups.JPG" alt="Target Groups" style="width:100%; display:block; border-bottom: 1px solid var(--border);"/>
+        <div style="padding: 10px 14px;">
+          <div style="font-size: 12px; font-weight: 600;">Step 2 — ALB Target Group</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">2 healthy targets registered — mywebservers target group on HTTP:80</div>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface);">
+        <img src="Ec2.JPG" alt="EC2 Instances" style="width:100%; display:block; border-bottom: 1px solid var(--border);"/>
+        <div style="padding: 10px 14px;">
+          <div style="font-size: 12px; font-weight: 600;">Step 3 — EC2 Instances</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">3 instances running — web-server-1, web-server-2, and Bastion-host in eu-north-1a</div>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface);">
+        <img src="Ansible.JPG" alt="Ansible Playbook" style="width:100%; display:block; border-bottom: 1px solid var(--border);"/>
+        <div style="padding: 10px 14px;">
+          <div style="font-size: 12px; font-weight: 600;">Step 4 — Ansible Playbook</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">deploy.yaml automates Nginx install, start, and HTML deployment across web servers</div>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface);">
+        <img src="Ssh bastion.JPG" alt="SSH Bastion" style="width:100%; display:block; border-bottom: 1px solid var(--border);"/>
+        <div style="padding: 10px 14px;">
+          <div style="font-size: 12px; font-weight: 600;">Step 5 — SSH via Bastion Host</div>
+          <div style="font-size: 11px; color: var(--muted); margin-top: 2px;">Secure SSH tunnel from Bastion host into private web server at 172.31.31.92</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
